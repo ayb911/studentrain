@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Train Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <!-- Top bar: brand, terms button, and quick start link. -->
+    <!-- الشريط العلوي وهوية المشروع -->
+    <header class="topbar">
+      <button class="topbar-menu-button" type="button" data-terms-open aria-label="الأحكام والشروط">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <div class="brand">
+        <div class="brand-mark">
+          <span class="material-symbols-outlined">directions_railway</span>
+        </div>
+        <div>
+          <p class="eyebrow">SMART TRAIN LINE</p>
+          <h1>Student Train Planner</h1>
+        </div>
+      </div>
+      <a class="topbar-chip topbar-start-link" href="#planner-start">
+        <span class="material-symbols-outlined">arrow_downward</span>
+        ابدأ
+      </a>
+    </header>
+
+    <!-- Terms modal opened from the top menu button. -->
+    <div class="terms-modal" data-terms-modal hidden>
+      <div class="terms-backdrop" data-terms-close></div>
+      <section class="terms-card" aria-label="شروط الاستخدام">
+        <div class="terms-head">
+          <div>
+            <p class="eyebrow">مهم</p>
+            <h3>الأحكام والشروط</h3>
+          </div>
+          <button class="terms-close" type="button" data-terms-close aria-label="إغلاق">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <div class="terms-content">
+          <section class="terms-section">
+            <h4>1. هدف الموقع</h4>
+            <p>يهدف هذا الموقع إلى مساعدة الطلبة في تقدير مواقيت القطارات للوصول إلى الجامعة في الوقت المناسب. وهو مشروع أكاديمي غير ربحي.</p>
+          </section>
+
+          <section class="terms-section">
+            <h4>2. دقة المعلومات</h4>
+            <p>المواقيت المعروضة في هذا الموقع مقدمة لأغراض إرشادية فقط. يتحمل المستخدم مسؤولية التحقق من المواقيت الرسمية لدى الجهات المختصة بالسكك الحديدية.</p>
+            <p>هذا الموقع مبادرة طلابية مستقلة، ولا يمثل أي جهة رسمية للنقل أو السكك الحديدية، ولا توجد له علاقة مباشرة بأي مؤسسة عمومية أو خاصة</p>
+          </section>
+
+          <section class="terms-section">
+            <h4>3. المسؤولية</h4>
+            <p>لا يتحمل الموقع أي مسؤولية في حال:</p>
+            <ul>
+              <li>تأخر القطار</li>
+              <li>تغيير المواقيت</li>
+              <li>إلغاء الرحلات</li>
+              <li>أي نتائج مترتبة عن استخدام المعلومات المقدمة</li>
+            </ul>
+          </section>
+
+          <section class="terms-section">
+            <h4>4. البيانات الشخصية</h4>
+            <p>لا يقوم هذا الموقع بجمع أي بيانات شخصية ولا يتطلب أي تسجيل.</p>
+          </section>
+
+          <section class="terms-section">
+            <h4>5. تعديل الخدمة</h4>
+            <p>يحق لإدارة الموقع تعديل أو إيقاف أو إنهاء الخدمة في أي وقت دون إشعار مسبق.</p>
+          </section>
+
+          <div class="terms-credit">
+            <p class="terms-credit-title">جامعة بومرداس محمد بوقرة</p>
+            <p>صمم هذا الموقع من قبل <strong>Sellam Ayoub</strong>، بمساعدة <strong>Salhi Amine</strong> و <strong>Hanine Youba</strong>.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Main landing layout: intro plus the planner form. -->
+    <main class="hero-layout">
+      <!-- القسم التعريفي بالمشروع -->
+      <section class="hero-copy">
+        <h2>اختر محطتك بسهولة، ودع الموقع يقترح لك القطار الأفضل والقطار الاحتياطي</h2>
+        <p>
+          هذا الموقع يساعد الطالب على اختيار محطة الانطلاق، تحديد الجامعة، ومعرفة القطار الأفضل مع خيار احتياطي قريب منه.
+          حاليًا يدعم الموقع خطًا واحدًا فقط: الجزائر - الثنية - الجزائر.
+        </p>
+
+        <div class="line-note">
+          <span class="material-symbols-outlined">route</span>
+          <p>ملاحظة: الموقع يخدم حاليًا خط الجزائر - الثنية - الجزائر فقط.</p>
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-card">
+            <span class="material-symbols-outlined">swap_horiz</span>
+            <div>
+              <h3>اختيار محطة أسهل</h3>
+              <p>التنقل بين المحطات يتم بالسحب يمينًا ويسارًا بشكل سلس وواضح حتى يعثر الطالب على محطته بسرعة.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <span class="material-symbols-outlined">phone_iphone</span>
+            <div>
+              <h3>أدخل وقت بداية الحصة</h3>
+              <p>بعد اختيار الجامعة والمحطة، يجب إدخال وقت بداية الحصة حتى يقترح الموقع القطار المناسب.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <span class="material-symbols-outlined">directions_walk</span>
+            <div>
+              <h3>نتيجة أوضح للرحلة</h3>
+              <p>يعرض القطار الأفضل والقطار الاحتياطي مع وقت المشي للوصول الحقيقي إلى الجامعة.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- المرحلة الأولى: اختيار المحطة والمدخلات الأساسية -->
+      <section class="selection-panel" id="planner-start">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">ابدأ هنا</p>
+            <h3>حدد جامعتك ثم اختر محطة انطلاقك</h3>
+          </div>
+          <span class="panel-icon material-symbols-outlined">near_me</span>
+        </div>
+
+        <p class="panel-subtitle">اختر جامعتك</p>
+        <div class="university-switch">
+          <button class="switch-chip" type="button" data-university="جامعة الجزائر">جامعة الجزائر</button>
+          <button class="switch-chip" type="button" data-university="جامعة العلوم الإسلامية">جامعة العلوم الإسلامية</button>
+          <button class="switch-chip switch-chip-active" type="button" data-university="جامعة باب الزوار">جامعة باب الزوار</button>
+          <button class="switch-chip" type="button" data-university="جامعة بومرداس">جامعة بومرداس</button>
+        </div>
+
+        <p class="panel-subtitle">اختر محطة انطلاقك الحالية</p>
+        <div class="station-slider-wrap">
+          <div class="slider-glow slider-glow-right"></div>
+          <div class="slider-glow slider-glow-left"></div>
+
+          <!-- شريط المحطات القابل للسحب -->
+          <div class="station-slider" data-station-slider>
+            <div class="station-edge station-edge-front" aria-hidden="true">
+              <div class="train-head">
+                <span class="material-symbols-outlined">directions_railway</span>
+              </div>
+            </div>
+            <button class="station-card" type="button" data-station="الجزائر">
+              <span class="station-type">محطة</span>
+              <strong>الجزائر</strong>
+              <small>بداية الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="آغا">
+              <span class="station-type">محطة</span>
+              <strong>آغا</strong>
+              <small>محطة جامعة</small>
+              <span class="station-badge-icon material-symbols-outlined">school</span>
+            </button>
+            <button class="station-card" type="button" data-station="الواراشات">
+              <span class="station-type">محطة</span>
+              <strong>الواراشات</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="حسين داي">
+              <span class="station-type">محطة</span>
+              <strong>حسين داي</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="خروبة">
+              <span class="station-type">محطة</span>
+              <strong>خروبة</strong>
+              <small>محطة جامعة</small>
+              <span class="station-badge-icon material-symbols-outlined">school</span>
+            </button>
+            <button class="station-card station-card-active" type="button" data-station="الحراش">
+              <span class="station-type">محطة</span>
+              <strong>الحراش</strong>
+              <small>محددة الآن</small>
+            </button>
+            <button class="station-card" type="button" data-station="وادي السمار">
+              <span class="station-type">محطة</span>
+              <strong>وادي السمار</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="باب الزوار">
+              <span class="station-type">محطة</span>
+              <strong>باب الزوار</strong>
+              <small>محطة جامعة</small>
+              <span class="station-badge-icon material-symbols-outlined">school</span>
+            </button>
+            <button class="station-card" type="button" data-station="الدار البيضاء">
+              <span class="station-type">محطة</span>
+              <strong>الدار البيضاء</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="الرويبة">
+              <span class="station-type">محطة</span>
+              <strong>الرويبة</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="الرغاية">
+              <span class="station-type">محطة</span>
+              <strong>الرغاية</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="بودواو">
+              <span class="station-type">محطة</span>
+              <strong>بودواو</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="قورصو">
+              <span class="station-type">محطة</span>
+              <strong>قورصو</strong>
+              <small>على نفس الخط</small>
+            </button>
+            <button class="station-card" type="button" data-station="بومرداس">
+              <span class="station-type">محطة</span>
+              <strong>بومرداس</strong>
+              <small>محطة جامعة</small>
+              <span class="station-badge-icon material-symbols-outlined">school</span>
+            </button>
+            <button class="station-card" type="button" data-station="تيجلابين">
+              <span class="station-type">محطة</span>
+              <strong>تيجلابين</strong>
+              <small>قبل الأخيرة</small>
+            </button>
+            <button class="station-card" type="button" data-station="الثنية">
+              <span class="station-type">محطة أخيرة</span>
+              <strong>الثنية</strong>
+              <small>نهاية الخط</small>
+            </button>
+            <div class="station-edge station-edge-back" aria-hidden="true">
+              <div class="train-head">
+                <span class="material-symbols-outlined">directions_railway</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-note" data-selection-note>
+          <span class="material-symbols-outlined">touch_app</span>
+          اسحب الشريط يمينًا أو يسارًا، ثم اضغط على المحطة التي تنطلق منها رحلتك.
+        </div>
+
+        <div class="field-grid">
+          <label class="field">
+            <span><span class="material-symbols-outlined">schedule</span> وقت بداية الحصة</span>
+            <input type="time" value="08:00" data-class-time />
+          </label>
+          <div class="field-stack">
+            <label class="field">
+              <span><span class="material-symbols-outlined">directions_walk</span> وقت المشي من محطة القطار إلى الجامعة</span>
+              <input type="number" value="10" placeholder="بالدقائق" data-walk-time />
+            </label>
+            <div class="walk-explainer walk-explainer-compact">
+              <span class="material-symbols-outlined">info</span>
+              <p>
+                وقت المشي يعني: المدة التي يحتاجها الطالب بعد نزوله من محطة القطار حتى يصل من المحطة إلى باب الجامعة.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button class="primary-button" type="button" data-confirm-button>
+          <span class="material-symbols-outlined">check_circle</span>
+          موافق، هذه محطتي
+        </button>
+        <div class="confirm-feedback" data-confirm-feedback aria-live="polite"></div>
+      </section>
+    </main>
+
+    <!-- المرحلة الثانية: تظهر بعد الضغط على زر الموافقة -->
+    <!-- Result section appears after the user confirms the trip. -->
+    <section class="route-panel" data-route-panel hidden>
+      <div class="route-panel-head">
+        <div>
+          <p class="eyebrow">المرحلة الثانية</p>
+          <h3>الرحلة المقترحة</h3>
+        </div>
+      </div>
+
+      <article class="journey-card">
+        <div class="journey-top">
+          <span class="journey-badge">
+            <span class="material-symbols-outlined">directions_railway</span>
+            القطار الأفضل
+          </span>
+          <span class="delay-badge" data-delay-badge>وصول مناسب</span>
+        </div>
+
+        <div class="journey-times">
+          <div class="time-block time-block-departure">
+            <span class="time-icon material-symbols-outlined">train</span>
+            <span>المغادرة</span>
+            <strong data-boarding-time>10:18</strong>
+          </div>
+          <div class="journey-icon">
+            <span class="material-symbols-outlined">directions_railway</span>
+          </div>
+          <div class="time-block time-block-arrival">
+            <span class="time-icon material-symbols-outlined">place</span>
+            <span>الوصول</span>
+            <strong data-train-arrival-time>10:40</strong>
+          </div>
+        </div>
+
+        <div class="journey-meta">
+          <div class="meta-row">
+            <span class="material-symbols-outlined">train</span>
+            <p>محطة الانطلاق: <strong data-route-start>الحراش</strong></p>
+          </div>
+          <div class="meta-row">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>محطة الجامعة: <strong data-route-destination>باب الزوار</strong></p>
+          </div>
+          <div class="meta-row">
+            <span class="material-symbols-outlined">directions_walk</span>
+            <p>الوصول للجامعة: <strong data-arrival-time>10:50</strong></p>
+            <span class="meta-time-icon material-symbols-outlined">school</span>
+          </div>
+          <div class="meta-row meta-row-success">
+            <span class="material-symbols-outlined">verified_user</span>
+            <p>وقت المشي: <strong data-walk-duration>10 دقائق</strong></p>
+          </div>
+        </div>
+
+        <p class="journey-note" data-primary-note>هذا هو الاقتراح الأنسب للوصول في الوقت المناسب.</p>
+
+      </article>
+
+      <article class="journey-card journey-card-secondary" data-backup-card hidden>
+        <div class="journey-top">
+          <span class="journey-badge journey-badge-secondary">
+            <span class="material-symbols-outlined">railway_alert</span>
+            القطار الاحتياطي
+          </span>
+          <span class="delay-badge delay-badge-secondary" data-backup-status>خيار ثانٍ</span>
+        </div>
+
+        <div class="journey-times">
+          <div class="time-block time-block-departure">
+            <span class="time-icon material-symbols-outlined">train</span>
+            <span>المغادرة</span>
+            <strong data-backup-boarding-time>10:18</strong>
+          </div>
+          <div class="journey-icon journey-icon-secondary">
+            <span class="material-symbols-outlined">directions_railway</span>
+          </div>
+          <div class="time-block time-block-arrival">
+            <span class="time-icon material-symbols-outlined">place</span>
+            <span>الوصول</span>
+            <strong data-backup-train-arrival-time>10:40</strong>
+          </div>
+        </div>
+
+        <div class="journey-meta">
+          <div class="meta-row">
+            <span class="material-symbols-outlined">train</span>
+            <p>محطة الانطلاق: <strong data-backup-route-start>الحراش</strong></p>
+          </div>
+          <div class="meta-row">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>محطة الجامعة: <strong data-backup-route-destination>باب الزوار</strong></p>
+          </div>
+          <div class="meta-row">
+            <span class="material-symbols-outlined">directions_walk</span>
+            <p>الوصول للجامعة: <strong data-backup-arrival-time>10:50</strong></p>
+            <span class="meta-time-icon material-symbols-outlined">school</span>
+          </div>
+          <div class="meta-row">
+            <span class="material-symbols-outlined">verified_user</span>
+            <p>وقت المشي: <strong data-backup-walk-duration>10 دقائق</strong></p>
+          </div>
+        </div>
+
+        <p class="journey-note journey-note-secondary" data-backup-note>هذا القطار يظهر كخيار احتياطي إذا كان ما زال مقبولًا.</p>
+      </article>
+
+      <div class="route-track-card">
+        <div class="route-track-head">
+          <h4>المحطات التي سيمر بها القطار</h4>
+          <p>من محطة الانطلاق حتى محطة الجامعة المختارة.</p>
+        </div>
+        <div class="route-stops" data-route-stops></div>
+      </div>
+    </section>
+  </div>
+  <script src="schedule-data.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
