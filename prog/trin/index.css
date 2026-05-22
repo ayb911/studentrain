@@ -279,7 +279,6 @@ body {
 
 .hero-copy p,
 .feature-card p,
-.panel-note,
 .field span,
 .station-card small,
 .station-type {
@@ -341,6 +340,21 @@ body {
   margin: 0 0 0.75rem;
   color: var(--primary-dark);
   font-weight: 700;
+}
+
+.station-swipe-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.55rem;
+  color: var(--primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.station-swipe-hint .material-symbols-outlined {
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .switch-chip {
@@ -543,14 +557,6 @@ body {
 .station-card-active .station-badge-icon {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
-}
-
-.panel-note {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 1rem;
-  line-height: 1.8;
 }
 
 .walk-explainer {
