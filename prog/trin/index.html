@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
   <meta charset="utf-8" />
@@ -132,20 +132,16 @@
         <div class="panel-head">
           <div>
             <p class="eyebrow">ابدأ هنا</p>
-            <h3>حدد جامعتك ثم اختر محطة انطلاقك</h3>
+            <h3>اختر محطة انطلاقك ثم حدد جامعتك</h3>
           </div>
           <span class="panel-icon material-symbols-outlined">near_me</span>
         </div>
 
-        <p class="panel-subtitle">اختر جامعتك</p>
-        <div class="university-switch">
-          <button class="switch-chip" type="button" data-university="جامعة الجزائر">جامعة الجزائر</button>
-          <button class="switch-chip" type="button" data-university="جامعة العلوم الإسلامية">جامعة العلوم الإسلامية</button>
-          <button class="switch-chip switch-chip-active" type="button" data-university="جامعة باب الزوار">جامعة باب الزوار</button>
-          <button class="switch-chip" type="button" data-university="جامعة بومرداس">جامعة بومرداس</button>
-        </div>
-
         <p class="panel-subtitle">اختر محطة انطلاقك الحالية</p>
+        <div class="station-swipe-hint" aria-hidden="true">
+          <span class="material-symbols-outlined">swap_horiz</span>
+          <span>اسحب يمينًا أو يسارًا</span>
+        </div>
         <div class="station-slider-wrap">
           <div class="slider-glow slider-glow-right"></div>
           <div class="slider-glow slider-glow-left"></div>
@@ -249,9 +245,12 @@
           </div>
         </div>
 
-        <div class="panel-note" data-selection-note>
-          <span class="material-symbols-outlined">touch_app</span>
-          اسحب الشريط يمينًا أو يسارًا، ثم اضغط على المحطة التي تنطلق منها رحلتك.
+        <p class="panel-subtitle">اختر جامعتك</p>
+        <div class="university-switch">
+          <button class="switch-chip" type="button" data-university="جامعة الجزائر">جامعة الجزائر</button>
+          <button class="switch-chip" type="button" data-university="جامعة العلوم الإسلامية">جامعة العلوم الإسلامية</button>
+          <button class="switch-chip switch-chip-active" type="button" data-university="جامعة باب الزوار">جامعة باب الزوار</button>
+          <button class="switch-chip" type="button" data-university="جامعة بومرداس">جامعة بومرداس</button>
         </div>
 
         <div class="field-grid">
