@@ -1,8 +1,6 @@
-// Main UI references used by the planner interactions.
 const stationButtons = document.querySelectorAll("[data-station]");
 const universityButtons = document.querySelectorAll("[data-university]");
 const confirmButton = document.querySelector("[data-confirm-button]");
-const selectionNote = document.querySelector("[data-selection-note]");
 const confirmFeedback = document.querySelector("[data-confirm-feedback]");
 const routePanel = document.querySelector("[data-route-panel]");
 const routeStart = document.querySelector("[data-route-start]");
@@ -306,16 +304,11 @@ function renderRoutePreview() {
 
 // Update the text under the station selector and the confirm button label.
 function updateSummaryText() {
-  if (!confirmButton || !selectionNote) return;
+  if (!confirmButton) return;
 
   confirmButton.innerHTML = `
     <span class="material-symbols-outlined">check_circle</span>
     موافق، الانطلاق من ${selectedStation}
-  `;
-
-  selectionNote.innerHTML = `
-    <span class="material-symbols-outlined">touch_app</span>
-    المحطة الحالية: <strong>${selectedStation}</strong>، والوجهة الجامعية المختارة: <strong>${selectedUniversity}</strong>.
   `;
 }
 
